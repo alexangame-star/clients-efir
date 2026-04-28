@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Стабільний потік клієнтів у бюті-бізнесі 2026 — Світлана Герасевич</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f7f5f2;--black:#0d0d0c;--text:#0d0d0c;
+  --muted:#888580;--hint:#b8b3ae;
+  --coral:#d94f2b;--coral-lt:#e8704f;--coral-bg:#fdf0ec;
+  --border:rgba(13,13,12,.1);--border2:rgba(13,13,12,.06);
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"DM Sans",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* TICKER */
+.ticker-wrap{background:var(--black);overflow:hidden;white-space:nowrap;padding:9px 0}
+.ticker-track{display:inline-flex;animation:ticker 32s linear infinite}
+.ticker-item{display:inline-flex;align-items:center;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);padding:0 24px}
+.ticker-item::after{content:"◆";font-size:7px;opacity:.35;margin-left:24px}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* NAV */
+nav{padding:18px 5vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border2);background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);background:rgba(255,255,255,.96)}
+.nav-brand{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--black);letter-spacing:-.01em;font-style:italic}
+.nav-brand span{color:var(--coral)}
+.nav-cta{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--coral);padding:10px 22px;border-radius:2px;border:none;cursor:pointer;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--coral-lt)}
+
+/* HERO */
+.hero{padding:72px 5vw 64px;border-bottom:1px solid var(--border)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:24px}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--coral);animation:pulse 1.8s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+.hero h1{font-family:var(--serif);font-size:clamp(40px,6vw,76px);font-weight:900;line-height:1.0;letter-spacing:-.03em;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--coral)}
+.hero-sub{font-size:17px;color:var(--muted);font-weight:300;line-height:1.7;max-width:580px;margin-bottom:36px}
+.meta-row{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.meta-item{display:flex;flex-direction:column;gap:4px;padding:16px 24px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.meta-label{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--hint)}
+.meta-value{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--text)}
+
+/* SECTION */
+section{border-bottom:1px solid var(--border)}
+.s-inner{padding:88px 5vw}
+.s-inner-dark{padding:88px 5vw;background:var(--black);color:#fff}
+.s-inner-gray{padding:88px 5vw;background:var(--bg2)}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+.eyebrow-white{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px}
+h2.s-title{font-family:var(--serif);font-size:clamp(34px,5vw,58px);font-weight:900;line-height:1.05;letter-spacing:-.025em;margin-bottom:48px}
+h2.s-title em{font-style:italic;color:var(--coral)}
+h2.s-title-white{font-family:var(--serif);font-size:clamp(34px,5vw,58px);font-weight:900;line-height:1.05;letter-spacing:-.025em;margin-bottom:48px;color:#fff}
+h2.s-title-white em{font-style:italic;color:#FFB4AD}
+
+/* GRID BORDERS */
+.grid-border{border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.grid-border-dark{border-top:1px solid rgba(255,255,255,.1);border-left:1px solid rgba(255,255,255,.1)}
+.cell{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 28px}
+.cell-dark{border-right:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);padding:32px 28px}
+.cell:hover{background:var(--bg2)}
+.cell-dark:hover{background:rgba(255,255,255,.04)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.about-text{padding:0 48px 0 0}
+.about-text p{font-size:17px;color:var(--muted);line-height:1.7;margin-bottom:20px;font-weight:300}
+.about-text p strong{color:var(--text);font-weight:600}
+.about-num-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.about-num-item{padding:28px 24px;border:1px solid rgba(255,255,255,.1);margin:-1px 0 0 -1px}
+.about-num-val{font-family:var(--serif);font-size:36px;font-weight:900;color:var(--coral);line-height:1;margin-bottom:8px}
+.about-num-val-white{font-family:var(--serif);font-size:36px;font-weight:900;color:#FFB4AD;line-height:1;margin-bottom:8px}
+.about-num-label{font-size:13px;color:rgba(255,255,255,.5);line-height:1.4}
+
+/* STATS GRID */
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat-cell{padding:48px 36px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat-num{font-family:var(--serif);font-size:clamp(52px,7vw,80px);font-weight:900;color:var(--coral);line-height:1;letter-spacing:-.03em;margin-bottom:12px}
+.stat-label{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text);line-height:1.4}
+
+/* CONTEXT */
+.context-quote{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:700;line-height:1.3;letter-spacing:-.02em;max-width:800px;margin:0 0 48px;padding-left:32px;border-left:3px solid var(--coral)}
+.context-quote em{font-style:italic;color:var(--coral)}
+.context-list{list-style:none;border-top:1px solid var(--border)}
+.context-list li{display:grid;grid-template-columns:20px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);font-size:17px;color:var(--muted)}
+.context-list li::before{content:"—";color:var(--coral);font-weight:600}
+
+/* METHODS */
+.method-card{background:var(--bg2);border:1px solid var(--border);border-radius:3px;padding:44px;margin-bottom:16px}
+.method-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:2px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px}
+.badge-green{background:#DCEADD;color:#2A6B3C}
+.badge-yellow{background:#FAECC4;color:#B88A0F}
+.badge-red{background:var(--coral-bg);color:var(--coral)}
+.method-title{font-family:var(--serif);font-size:clamp(26px,3.5vw,38px);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
+.method-title em{font-style:italic;color:var(--coral)}
+.method-desc{font-size:15px;color:var(--muted);margin-bottom:32px;max-width:680px;line-height:1.6}
+.method-items{border-top:1px solid var(--border)}
+.method-item{display:grid;grid-template-columns:44px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--border)}
+.method-item-num{font-family:var(--serif);font-size:20px;font-weight:700;font-style:italic;color:var(--coral);line-height:1;padding-top:3px}
+.method-item h4{font-family:var(--serif);font-size:18px;font-weight:700;margin-bottom:7px;letter-spacing:-.01em}
+.method-item p{font-size:14px;color:var(--muted);line-height:1.6}
+.method-item em{color:var(--coral);font-style:italic;font-weight:500}
+.method-item ul{list-style:none;margin-top:8px}
+.method-item ul li{padding-left:14px;position:relative;color:var(--muted);font-size:14px;line-height:1.6}
+.method-item ul li::before{content:"·";position:absolute;left:4px;color:var(--coral);font-weight:700}
+.highlight{padding:16px 20px;background:var(--coral-bg);border-radius:2px;border-left:2px solid var(--coral);margin-top:12px}
+.highlight p{color:#9a2e12;font-size:14px;line-height:1.5}
+
+/* META BLOCK */
+.meta-block{background:var(--black);color:#fff;padding:88px 5vw;border-bottom:1px solid rgba(255,255,255,.1)}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:0}
+.pros-box,.cons-box{padding:36px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+.box-title{font-family:var(--serif);font-size:22px;font-style:italic;font-weight:700;margin-bottom:24px;color:#fff}
+.pros-box ul,.cons-box ul{list-style:none;display:grid;gap:16px}
+.pros-box li,.cons-box li{display:grid;grid-template-columns:20px 1fr;gap:12px;font-size:14px;color:rgba(255,255,255,.7);line-height:1.55}
+.pros-box li strong,.cons-box li strong{color:#fff;font-weight:600}
+.icon-green{color:#7BB884;font-weight:700}
+.icon-red{color:#FFB4AD;font-weight:700}
+
+/* BUDGET */
+.budget-block{padding:56px 5vw;background:var(--black);border-bottom:1px solid rgba(255,255,255,.1)}
+.budget-card{background:rgba(217,79,43,.12);border:1px solid rgba(217,79,43,.3);border-radius:3px;padding:36px;text-align:center}
+.budget-label{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px}
+.budget-text{font-family:var(--serif);font-size:clamp(18px,2.5vw,26px);font-weight:700;line-height:1.4;color:#fff}
+.budget-text em{color:#FFB4AD;font-style:normal;font-weight:900}
+
+/* FUNNEL */
+.rule-card{background:var(--black);color:#fff;border-radius:3px;padding:44px;margin-bottom:20px;display:grid;grid-template-columns:120px 1fr;gap:40px;align-items:center}
+.rule-num{font-family:var(--serif);font-size:80px;font-weight:900;line-height:1;color:var(--coral);letter-spacing:-.03em}
+.rule-text h3{font-family:var(--serif);font-size:26px;font-weight:900;margin-bottom:10px;color:#fff}
+.rule-text p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.6}
+.funnel-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--border);border-left:1px solid var(--border);margin-bottom:40px}
+.funnel-step{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 20px;text-align:center}
+.funnel-step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--coral);color:#fff;font-size:12px;font-weight:700;margin-bottom:12px}
+.funnel-step-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.3}
+.funnel-step-drop{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--coral)}
+.script-card{background:var(--bg2);border:1px solid var(--border);border-radius:3px;padding:36px}
+.script-card h3{font-family:var(--serif);font-size:22px;font-weight:700;margin-bottom:20px}
+.script-quote{font-family:var(--serif);font-size:17px;font-style:italic;line-height:1.7;color:var(--text);padding:24px 28px;background:var(--bg);border-radius:2px;border-left:3px solid var(--coral)}
+.script-note{font-size:13px;color:var(--muted);margin-top:14px;font-style:italic}
+
+/* OFFERS */
+.offers-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.offer-card{padding:40px;background:var(--bg);border:1px solid var(--border)}
+.offer-card.dark{background:var(--black);border-color:rgba(255,255,255,.08)}
+.offer-badge-outline{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:2px;margin-bottom:20px;background:transparent;color:var(--muted);border:1px solid var(--border)}
+.offer-badge-coral{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:2px;margin-bottom:20px;background:var(--coral);color:#fff}
+.offer-num{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--hint);margin-bottom:10px}
+.offer-card.dark .offer-num{color:rgba(255,255,255,.25)}
+.offer-title{font-family:var(--serif);font-size:30px;font-weight:900;margin-bottom:8px;color:var(--text)}
+.offer-card.dark .offer-title{color:#fff}
+.offer-tagline{font-size:14px;color:var(--muted);line-height:1.55;margin-bottom:28px}
+.offer-card.dark .offer-tagline{color:rgba(255,255,255,.4)}
+.offer-price{font-family:var(--serif);font-size:60px;font-weight:900;line-height:1;letter-spacing:-.03em;color:var(--coral);margin-bottom:4px}
+.offer-price-note{font-size:13px;color:var(--muted);margin-bottom:28px}
+.offer-card.dark .offer-price-note{color:rgba(255,255,255,.35)}
+.offer-divider{height:1px;background:var(--border);margin-bottom:20px}
+.offer-card.dark .offer-divider{background:rgba(255,255,255,.08)}
+.offer-items-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--hint);margin-bottom:14px}
+.offer-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
+.chk{width:16px;height:16px;border-radius:2px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center}
+.chk-light{background:var(--coral-bg);border:1px solid rgba(217,79,43,.2)}
+.chk-dark{background:rgba(217,79,43,.2)}
+.chk svg{width:8px;height:8px}
+.offer-item-text{font-size:13px;color:var(--text);line-height:1.45}
+.offer-card.dark .offer-item-text{color:rgba(255,255,255,.75)}
+.offer-item-text small{font-size:11px;color:var(--muted);display:block;margin-top:2px}
+.offer-card.dark .offer-item-text small{color:rgba(255,255,255,.3)}
+.offer-support{margin-top:14px;padding:12px 14px;font-size:13px;line-height:1.5;border-left:2px solid var(--coral);border-radius:2px}
+.supp-light{background:var(--coral-bg);color:var(--coral)}
+.supp-dark{background:rgba(217,79,43,.1);color:rgba(232,112,79,.85)}
+.offer-btn{display:block;width:100%;padding:13px;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;text-decoration:none;text-align:center;transition:all .2s;margin-top:28px}
+.btn-coral{background:var(--coral);color:#fff}
+.btn-coral:hover{background:var(--coral-lt)}
+.btn-white{background:#fff;color:var(--black)}
+.btn-white:hover{background:#f0ede8}
+
+/* MISTAKES */
+.mistakes-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.mistake-cell{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px;display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;transition:background .2s}
+.mistake-cell:hover{background:var(--bg2)}
+.mistake-icon{width:36px;height:36px;border-radius:50%;background:var(--coral-bg);color:var(--coral);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:16px;flex-shrink:0}
+.mistake-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;line-height:1.3}
+.mistake-desc{font-size:13px;color:var(--muted);line-height:1.55}
+
+/* MATH */
+.math-table{background:var(--bg2);border:1px solid var(--border);border-radius:3px;padding:40px;margin-bottom:32px}
+.math-table h3{font-family:var(--serif);font-size:20px;font-weight:700;margin-bottom:24px}
+.math-row{display:grid;grid-template-columns:1fr auto;gap:20px;padding:14px 0;border-bottom:1px solid var(--border);align-items:center}
+.math-row:last-child{border-bottom:none}
+.math-row-label{font-size:15px;color:var(--muted)}
+.math-row-value{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--text)}
+.math-row-value.accent{color:var(--coral)}
+.visits-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-top:1px solid var(--border);border-left:1px solid var(--border);margin-bottom:24px}
+.visit-cell{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 16px;text-align:center}
+.visit-cell.breakeven{background:var(--coral);border-color:var(--coral)}
+.visit-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.visit-cell.breakeven .visit-label{color:rgba(255,255,255,.7)}
+.visit-add{font-family:var(--serif);font-size:15px;color:var(--muted);margin-bottom:12px}
+.visit-cell.breakeven .visit-add{color:rgba(255,255,255,.6)}
+.visit-total{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:-.02em}
+.visit-total.neg{color:var(--coral)}
+.visit-total.pos{color:#2A6B3C}
+.visit-total.zero{color:var(--muted)}
+.visit-cell.breakeven .visit-total{color:#fff}
+.math-result{background:var(--black);color:#fff;border-radius:3px;padding:40px;text-align:center}
+.math-result-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px}
+.math-result-value{font-family:var(--serif);font-size:clamp(34px,5vw,52px);font-weight:900;line-height:1;letter-spacing:-.02em;color:#fff}
+.math-result-value em{color:#FFB4AD;font-style:italic}
+.math-result-note{margin-top:12px;font-size:14px;color:rgba(255,255,255,.4)}
+
+/* ROZBORY */
+.rozbory-block{padding:88px 5vw;background:var(--black);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.rozbory-intro{font-size:20px;color:rgba(255,255,255,.75);line-height:1.65;max-width:680px;margin-bottom:40px;font-weight:300}
+.rozbory-chat-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:36px;margin-bottom:40px}
+.rozbory-chat-label{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:20px}
+.rozbory-chat-items{display:grid;gap:14px}
+.rozbory-chat-item{display:flex;gap:14px;align-items:center}
+.rozbory-chat-num{width:28px;height:28px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.rozbory-chat-text{font-size:15px;color:rgba(255,255,255,.75)}
+
+/* CTA BLOCKS */
+.cta-mid{padding:64px 5vw;background:var(--black);border:none;border-top:1px solid rgba(255,255,255,.08)}
+.cta-mid-inner{background:rgba(217,79,43,.1);border:1px solid rgba(217,79,43,.25);border-radius:3px;padding:48px;text-align:center;max-width:680px;margin:0 auto}
+.cta-mid-label{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px}
+.cta-mid-title{font-family:var(--serif);font-size:clamp(26px,3.5vw,38px);font-weight:900;line-height:1.15;color:#fff;margin-bottom:12px}
+.cta-mid-title em{font-style:italic;color:#FFB4AD}
+.cta-mid-sub{font-size:15px;color:rgba(255,255,255,.45);line-height:1.65;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-btn-coral{display:inline-block;padding:14px 44px;background:var(--coral);color:#fff;border-radius:2px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.cta-btn-coral:hover{background:var(--coral-lt)}
+
+/* QA */
+.qa-grid{display:grid;gap:12px}
+.qa-item{background:var(--bg);border:1px solid var(--border);border-radius:2px;overflow:hidden}
+.qa-item-inner{padding:24px 28px;border-left:3px solid var(--coral)}
+.qa-q{font-family:var(--serif);font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em;color:var(--text)}
+.qa-a{font-size:14px;color:var(--muted);line-height:1.65}
+
+/* CONCLUSIONS */
+.conc-list{counter-reset:conc;display:grid;gap:12px;margin-top:0}
+.conc-item{display:grid;grid-template-columns:60px 1fr;gap:24px;padding:28px 32px;background:var(--bg2);border:1px solid var(--border);border-radius:2px;align-items:center;counter-increment:conc;transition:all .2s}
+.conc-item:hover{border-color:var(--coral);transform:translateX(4px)}
+.conc-item::before{content:counter(conc,decimal-leading-zero);font-family:var(--serif);font-size:30px;font-weight:900;font-style:italic;color:var(--coral);line-height:1}
+.conc-item p{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.4;letter-spacing:-.01em;color:var(--text)}
+.conc-item p strong{color:var(--coral);font-weight:900}
+
+/* FINAL CTA */
+.final-cta{padding:100px 5vw;background:var(--bg2);border-bottom:1px solid var(--border)}
+.final-cta-inner{max-width:760px;margin:0 auto;text-align:center}
+.final-cta-tag{display:inline-block;padding:7px 18px;background:var(--coral);color:#fff;border-radius:2px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:28px}
+.final-cta h2{font-family:var(--serif);font-size:clamp(36px,5.5vw,64px);font-weight:900;line-height:1.05;letter-spacing:-.025em;margin-bottom:20px;color:var(--text)}
+.final-cta h2 em{font-style:italic;color:var(--coral)}
+.final-cta-sub{font-size:17px;color:var(--muted);line-height:1.65;max-width:580px;margin:0 auto 32px;font-weight:300}
+.final-cta-list{list-style:none;max-width:520px;margin:0 auto 36px;text-align:left;border-top:1px solid var(--border)}
+.final-cta-list li{display:grid;grid-template-columns:20px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--text)}
+.final-cta-list li::before{content:"→";color:var(--coral);font-weight:700}
+.final-cta-offer{display:inline-block;padding:20px 32px;background:var(--bg);border:1px dashed var(--coral);border-radius:2px;margin-bottom:36px}
+.final-cta-offer-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.final-cta-offer-value{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--coral);line-height:1.3}
+.final-cta-offer-value small{font-size:14px;color:var(--muted);font-style:italic;font-weight:400}
+.final-cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-big-coral{padding:16px 44px;background:var(--coral);color:#fff;border:none;border-radius:2px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all .2s;display:inline-block}
+.btn-big-coral:hover{background:var(--coral-lt);transform:translateY(-1px)}
+.btn-big-outline{padding:16px 44px;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:2px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all .2s;display:inline-block}
+.btn-big-outline:hover{background:var(--text);color:#fff}
+
+/* FOOTER */
+footer{padding:28px 5vw;background:var(--black);border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-brand{font-family:var(--serif);font-size:16px;font-style:italic;color:#fff}
+.footer-brand span{color:var(--coral)}
+.footer-info{font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.04em}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+@media(max-width:860px){
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-text{padding:0}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .pros-cons,.offers-grid,.mistakes-grid{grid-template-columns:1fr}
+  .funnel-steps{grid-template-columns:1fr 1fr}
+  .visits-grid{grid-template-columns:repeat(3,1fr)}
+  .rule-card{grid-template-columns:1fr;gap:20px;text-align:center}
+  .meta-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .s-inner,.s-inner-dark,.s-inner-gray,.meta-block,.budget-block,.rozbory-block,.cta-mid,.final-cta{padding:56px 5vw}
+  .conc-item{grid-template-columns:1fr;padding:20px}
+  .conc-item::before{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">28 квітня</span><span class="ticker-item">прямий ефір</span><span class="ticker-item">бюті бізнес</span><span class="ticker-item">клієнти 2026</span><span class="ticker-item">zoom</span><span class="ticker-item">Світлана Герасевич</span><span class="ticker-item">28 квітня</span><span class="ticker-item">прямий ефір</span><span class="ticker-item">бюті бізнес</span><span class="ticker-item">клієнти 2026</span><span class="ticker-item">zoom</span><span class="ticker-item">Світлана Герасевич</span>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-brand">Світлана <span>Герасевич</span></div>
+  <a class="nav-cta" href="#cta">Залишити заявку</a>
+</nav>
+
+<!-- HERO -->
+<section>
+  <div class="hero">
+    <div class="hero-badge reveal"><div class="hero-badge-dot"></div>Прямий ефір · 28 квітня 2026</div>
+    <h1 class="reveal d1">Стабільний потік <em>клієнтів</em><br>у бюті-бізнесі:<br>що працює у 2026</h1>
+    <p class="hero-sub reveal d2">Реальні методи, живі цифри і математика залучення клієнтів. Без теорії з книжок — лише те що я перевірила на власному салоні і бачу щодня у роботі з власниками бюті-бізнесів.</p>
+    <div class="meta-row reveal d3">
+      <div class="meta-item"><div class="meta-label">Спікер</div><div class="meta-value">Світлана Герасевич</div></div>
+      <div class="meta-item"><div class="meta-label">Формат</div><div class="meta-value">Живий ефір · Zoom</div></div>
+      <div class="meta-item"><div class="meta-label">Для кого</div><div class="meta-value">Власники і майстри в бюті</div></div>
+      <div class="meta-item"><div class="meta-label">Тривалість</div><div class="meta-value">2 години практики</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section style="background:var(--black);border-bottom:1px solid rgba(255,255,255,.08)">
+  <div class="s-inner-dark">
+    <div class="eyebrow-white reveal">— 01 / Хто я</div>
+    <h2 class="s-title-white reveal d1">Я не теоретик. Я <em>практик</em></h2>
+    <div class="about-grid">
+      <div class="about-text reveal d1">
+        <p>Я власниця салону краси в Києві і ментор для власників бюті-бізнесу. Не розповідаю «як має бути» — я щодня керую реальним салонним бізнесом в умовах сьогодення.</p>
+        <p>Починала як майстриня. Робила нігті <strong>24/7</strong>, паралельно керувала командою. Не було системи, не було розуміння як цей бізнес має працювати. На початку — просто виживала.</p>
+        <p>Пішла з найманої роботи щоб звільнити себе — але повісила на себе ще більший тягар. Без вихідних. Не бачила дітей, не бачила родину. <strong>Просто виживала.</strong></p>
+        <p>За останній рік повністю перебудувала свій салон. Сьогодні він приносить <strong>3000$+ чистими</strong> і я витрачаю на нього близько 10 годин на місяць.</p>
+      </div>
+      <div class="about-num-grid reveal d2">
+        <div class="about-num-item"><div class="about-num-val-white">3000$+</div><div class="about-num-label">Чистий прибуток<br>щомісяця</div></div>
+        <div class="about-num-item"><div class="about-num-val-white">10 год</div><div class="about-num-label">Моєї участі<br>на місяць</div></div>
+        <div class="about-num-item"><div class="about-num-val-white">1 рік</div><div class="about-num-label">Щоб повністю<br>перебудувати систему</div></div>
+        <div class="about-num-item"><div class="about-num-val-white">0</div><div class="about-num-label">Мотиваційних лекцій<br>на ефірі</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section>
+  <div class="s-inner-gray">
+    <div class="eyebrow reveal">— 02 / Факти</div>
+    <h2 class="s-title reveal d1">Головна теза — <em>не в клієнтах</em></h2>
+    <div class="grid-border reveal d1">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr)">
+        <div class="stat-cell"><div class="stat-num">71%</div><div class="stat-label">Власників називають клієнтів головною проблемою</div></div>
+        <div class="stat-cell"><div class="stat-num">50-70%</div><div class="stat-label">Заявок зливається до першого запису</div></div>
+        <div class="stat-cell" style="border-right:none"><div class="stat-num">×3</div><div class="stat-label">Більше приносить постійний клієнт проти нового</div></div>
+      </div>
+    </div>
+    <div style="margin-top:40px">
+      <div class="context-quote reveal d2">"Ви не недозаробляєте. Ви <em>зливаєте клієнтів</em> — на кожному етапі від першого контакту до повторного запису."</div>
+      <p style="font-size:18px;color:var(--muted);margin-bottom:20px" class="reveal d2">За фразою «немає клієнтів» майже завжди стоїть:</p>
+      <ul class="context-list reveal d3">
+        <li>немає системи яка регулярно приводить нових клієнтів</li>
+        <li>немає скриптів які утримують клієнта після першого візиту</li>
+        <li>реклама запускається без підготовки і без розуміння воронки</li>
+        <li>немає системи повторних візитів — клієнти зникають після першого</li>
+        <li>адмін не продає — просто відповідає</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- METHODS -->
+<section>
+  <div class="s-inner">
+    <div class="eyebrow reveal">— 03 / Три рівні залучення</div>
+    <h2 class="s-title reveal d1">Де <em>брати клієнтів</em></h2>
+
+    <div class="method-card reveal d1">
+      <div class="method-badge badge-green">Безкоштовні</div>
+      <div class="method-title">Час <em>замість</em> грошей</div>
+      <p class="method-desc">Те що може запустити навіть найменша студія. Грошей не потрібно — потрібні системність і регулярність.</p>
+      <div class="method-items">
+        <div class="method-item"><div class="method-item-num">01</div><div><h4>Google-карти та відгуки</h4><p>Якщо салону немає в топ-3 за запитом «манікюр + район» — ви втрачаєте <em>30-40% потенційних клієнтів</em>. Просіть відгук після кожного візиту — зі стимулом.</p></div></div>
+        <div class="method-item"><div class="method-item-num">02</div><div><h4>Instagram як вітрина 24/7</h4><p>Не «красивий блог». До/після щодня, відгук клієнтки на камеру, закулісся. 3-4 місяці системної роботи — стабільний приріст без реклами.</p></div></div>
+        <div class="method-item"><div class="method-item-num">03</div><div><h4>Сарафан зі стимулом</h4><p>Голий сарафан не зростає сам. Підштовхніть: подарунковий сертифікат за нового клієнта.<div class="highlight"><p>Математика: ціна клієнта з реклами 800 грн. Сертифікат 400 грн — залучаєте вдвічі дешевше.</p></div></p></div></div>
+        <div class="method-item"><div class="method-item-num">04</div><div><h4>База клієнтів — найдешевше джерело</h4><p>Розсилка по «сплячих» клієнтах 40+ днів без візиту повертає <em>10-15% бази безкоштовно.</em> Але 80% власників цього не роблять.</p></div></div>
+        <div class="method-item"><div class="method-item-num">05</div><div><h4>Колаборації з сусідніми бізнесами</h4><p>Фітнес, кав'ярня, магазин одягу — знижка їхнім клієнтам, бонус вашим. <em>Нуль грошей, взаємний потік.</em></p></div></div>
+      </div>
+    </div>
+
+    <div class="method-card reveal d2">
+      <div class="method-badge badge-yellow">Малобюджетні · до 15 000 грн/міс</div>
+      <div class="method-title">Перші <em>вкладення</em></div>
+      <p class="method-desc">Коли базовий оборот вже є і хочеться прискорити результат.</p>
+      <div class="method-items">
+        <div class="method-item"><div class="method-item-num">01</div><div><h4>UGC-контент від клієнток</h4><p>Відгук на камеру телефона — 30 секунд. Довіра в рази вища за брендовані ролики. 10 UGC на місяць = 10 живих рекомендацій які працюють роками.</p></div></div>
+        <div class="method-item"><div class="method-item-num">02</div><div><h4>Мікро-блогери міста</h4><p>Дівчина з 5-20К підписників яка живе у вашому районі. Бартер або 1500-3000 грн — завжди з відстеженням результату.</p></div></div>
+        <div class="method-item"><div class="method-item-num">03</div><div><h4>Клієнтські дні</h4><p>Раз на місяць — знижка на послугу, міні-майстер-клас. Активізація бази і залучення їхніх подруг.</p></div></div>
+      </div>
+    </div>
+
+    <div class="method-card reveal d3">
+      <div class="method-badge badge-red">Платні · від 20 000 грн/міс</div>
+      <div class="method-title">Головний <em>прискорювач</em></div>
+      <p class="method-desc">Meta Ads — прискорювач, не рятівник. Без упаковки і системи — реклама зливає бюджет.</p>
+      <div class="highlight"><p>⚠ Спочатку вітрина в Instagram, скрипти адміна і розуміння воронки. Потім — трафік. Без цього навіть найкращий таргетолог не дасть результату.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- META BLOCK -->
+<div class="meta-block">
+  <div style="max-width:920px;margin:0 auto">
+    <div class="eyebrow-white reveal">— 04 / Meta Ads</div>
+    <h2 class="s-title-white reveal d1">Реклама у 2026: <em>плюси і мінуси</em></h2>
+    <div class="pros-cons reveal d2">
+      <div class="pros-box">
+        <div class="box-title">⊕ Що дає реклама</div>
+        <ul>
+          <li><span class="icon-green">→</span><div><strong>Передбачуваність.</strong> Заплатила Х грн → отримала Y заявок</div></li>
+          <li><span class="icon-green">→</span><div><strong>Масштабованість.</strong> Від 500 до 5000 грн/день без зламів</div></li>
+          <li><span class="icon-green">→</span><div><strong>Точний таргет.</strong> Жінки 25-45, радіус 3 км від салону</div></li>
+          <li><span class="icon-green">→</span><div><strong>Ретаргет.</strong> Наздоганяємо тих хто зайшов і не записався</div></li>
+          <li><span class="icon-green">→</span><div><strong>Швидкість.</strong> Перші заявки за 24-48 годин</div></li>
+        </ul>
+      </div>
+      <div class="cons-box">
+        <div class="box-title">⊖ Що вбиває рекламу</div>
+        <ul>
+          <li><span class="icon-red">→</span><div><strong>Instagram не готовий.</strong> Клікнула — зайшла — пішла за 3 секунди. Спочатку вітрина.</div></li>
+          <li><span class="icon-red">→</span><div><strong>Маленький бюджет.</strong> 5$/день не дає результату. Мінімум: 500-700$/міс для малих міст, 700-1500$/міс для великих.</div></li>
+          <li><span class="icon-red">→</span><div><strong>Один креатив.</strong> Потрібен пак: різний візуал, різні тексти, мінімум 3-5 варіантів.</div></li>
+          <li><span class="icon-red">→</span><div><strong>Закрили на 3-й день.</strong> Алгоритму потрібно 7-14 днів. Перші дні завжди дорогі — це норма.</div></li>
+          <li><span class="icon-red">→</span><div><strong>Немає аналітики.</strong> Щотижня фіксуйте покази, кліки, заявки, вартість запису.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="budget-block">
+  <div style="max-width:920px;margin:0 auto">
+    <div class="budget-card reveal">
+      <div class="budget-label">Мінімальний робочий бюджет</div>
+      <div class="budget-text">Місто до 200К населення: <em>500-700$/міс</em> · Велике місто: <em>700-1500$/міс</em><br>Менше — алгоритм не встигає навчитись. Гроші на вітер.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FUNNEL -->
+<section>
+  <div class="s-inner-gray">
+    <div class="eyebrow reveal">— 05 / Конверсія</div>
+    <h2 class="s-title reveal d1">Лід ≠ клієнт: <em>де зливаються заявки</em></h2>
+    <div class="rule-card reveal d1">
+      <div class="rule-num">5'</div>
+      <div class="rule-text"><h3>Правило 5 хвилин</h3><p>Адмін має відповісти протягом 5 хвилин. Кожна година затримки — мінус 10-15% конверсії. Через 24 години клієнт вже у конкурента. Це не теорія — це цифри.</p></div>
+    </div>
+    <div class="funnel-steps reveal d2">
+      <div class="funnel-step"><div class="funnel-step-num">1</div><div class="funnel-step-title">Привітання і уточнення</div><div class="funnel-step-drop">—</div></div>
+      <div class="funnel-step"><div class="funnel-step-num">2</div><div class="funnel-step-title">Пропозиція часу</div><div class="funnel-step-drop">−15%</div></div>
+      <div class="funnel-step"><div class="funnel-step-num">3</div><div class="funnel-step-title">Підтвердження запису</div><div class="funnel-step-drop">−10%</div></div>
+      <div class="funnel-step"><div class="funnel-step-num">4</div><div class="funnel-step-title">Нагадування за 24 год</div><div class="funnel-step-drop">−20%</div></div>
+      <div class="funnel-step"><div class="funnel-step-num">5</div><div class="funnel-step-title">Повернення на повторний</div><div class="funnel-step-drop">−50%</div></div>
+    </div>
+    <div class="script-card reveal d2">
+      <h3>Скрипт першого повідомлення</h3>
+      <div class="script-quote">Добрий день, [Ім'я]! Це [адмін] зі студії [Назва]. Бачу ви цікавились [послугою]. У нас є вільний час у вівторок о 14:00 і в четвер о 11:00 — який зручніший?</div>
+      <p class="script-note">Конкретика замість «Здрастуйте, чим можу допомогти?» дає +25-30% до конверсії. Не залишайте клієнту роботу — пропонуйте час одразу.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MATH -->
+<section>
+  <div class="s-inner">
+    <div class="eyebrow reveal">— 06 / Математика LTV</div>
+    <h2 class="s-title reveal d1">Коли клієнт починає <em>приносити гроші</em></h2>
+    <div class="math-table reveal d1">
+      <h3>Вихідні дані</h3>
+      <div class="math-row"><span class="math-row-label">Ціна послуги (манікюр)</span><span class="math-row-value">1 100 грн</span></div>
+      <div class="math-row"><span class="math-row-label">Маржа (35%)</span><span class="math-row-value">385 грн</span></div>
+      <div class="math-row"><span class="math-row-label">Вартість залучення через рекламу</span><span class="math-row-value accent">800 грн</span></div>
+    </div>
+    <div class="visits-grid reveal d2">
+      <div class="visit-cell"><div class="visit-label">1 візит</div><div class="visit-add">+385 −800</div><div class="visit-total neg">−415</div></div>
+      <div class="visit-cell"><div class="visit-label">2 візит</div><div class="visit-add">+385</div><div class="visit-total" style="color:var(--muted)">−30</div></div>
+      <div class="visit-cell breakeven"><div class="visit-label">3 візит ★</div><div class="visit-add">+385</div><div class="visit-total">+355</div></div>
+      <div class="visit-cell"><div class="visit-label">4 візит</div><div class="visit-add">+385</div><div class="visit-total pos">+740</div></div>
+      <div class="visit-cell"><div class="visit-label">5 візит</div><div class="visit-add">+385</div><div class="visit-total pos">+1 125</div></div>
+      <div class="visit-cell"><div class="visit-label">6 візит</div><div class="visit-add">+385</div><div class="visit-total pos">+1 510</div></div>
+    </div>
+    <div class="math-result reveal d3">
+      <div class="math-result-label">За рік одного клієнта (10 візитів)</div>
+      <div class="math-result-value">3 050 грн <em>чистого прибутку</em></div>
+      <p class="math-result-note">І це лише манікюр. Без брів, догляду, косметики.</p>
+    </div>
+    <p class="reveal d3" style="font-family:var(--serif);font-size:20px;font-style:italic;color:var(--text);text-align:center;margin-top:40px;line-height:1.5">Не міряйте рекламу вартістю першого клієнта. Міряйте <span style="color:var(--coral)">LTV</span> — скільки він принесе за рік.</p>
+  </div>
+</section>
+
+<!-- CTA MID 1 -->
+<div style="padding:64px 5vw;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="cta-mid-inner reveal">
+    <div class="cta-mid-label" style="color:var(--muted)">Особиста робота · CTA 1</div>
+    <h3 style="font-family:var(--serif);font-size:clamp(24px,3.5vw,36px);font-weight:900;color:var(--text);margin-bottom:12px">Хочете розібрати <span style="color:var(--coral);font-style:italic">свою ситуацію?</span></h3>
+    <p style="font-size:15px;color:var(--muted);line-height:1.65;max-width:500px;margin:0 auto 24px">Я проводжу індивідуальну роботу з власниками салонів і майстрами-власниками. Заповніть коротку анкету — переглядаю кожну особисто.</p>
+    <a href="#" class="cta-btn-coral" style="background:var(--coral);color:#fff;border-radius:2px;padding:13px 40px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;display:inline-block">Заповнити анкету →</a>
+  </div>
+</div>
+
+<!-- MISTAKES -->
+<section>
+  <div class="s-inner">
+    <div class="eyebrow reveal">— 07 / Помилки в рекламі</div>
+    <h2 class="s-title reveal d1">Що вбиває рекламу <em>ще до запуску</em></h2>
+    <p style="font-size:17px;color:var(--muted);max-width:680px;margin-bottom:40px;line-height:1.6" class="reveal d1">Більшість думає що реклама не працює. Насправді реклама не запускається правильно.</p>
+    <div class="mistakes-grid reveal d2">
+      <div class="mistake-cell"><div class="mistake-icon">01</div><div><div class="mistake-title">Instagram або сайт не готові</div><div class="mistake-desc">Людина клікнула, зайшла — і пішла за 3 секунди. Пустий профіль зливає будь-яку рекламу. Спочатку вітрина — потім трафік.</div></div></div>
+      <div class="mistake-cell"><div class="mistake-icon">02</div><div><div class="mistake-title">Занадто маленький бюджет</div><div class="mistake-desc">5$/день не дає ні охоплення ні результату. Мінімум для міста до 200К — 500-700$/міс. Для великих — 700-1500$/міс. Менше — гроші на вітер.</div></div></div>
+      <div class="mistake-cell"><div class="mistake-icon">03</div><div><div class="mistake-title">Один креатив замість паку</div><div class="mistake-desc">Якщо не зайшов — не знаєте де проблема. Потрібен пак: різні візуали, різні тексти. Мінімум 3-5 варіантів одночасно.</div></div></div>
+      <div class="mistake-cell"><div class="mistake-icon">04</div><div><div class="mistake-title">Слабкий текст на креативі</div><div class="mistake-desc">Візуал зупиняє. Текст змушує діяти. Без чіткого меседжу на банері — втрачаєте половину кліків.</div></div></div>
+      <div class="mistake-cell"><div class="mistake-icon">05</div><div><div class="mistake-title">Закрили кампанію на 3-й день</div><div class="mistake-desc">Рекламі потрібно 7-14 днів на оптимізацію. Хто не витримує — починає заново і щоразу платить дорогі перші дні знову.</div></div></div>
+      <div class="mistake-cell"><div class="mistake-icon">06</div><div><div class="mistake-title">Немає аналітики</div><div class="mistake-desc">Запустили і забули. Щотижня фіксуйте: покази, кліки, заявки, вартість запису. Без цього не знаєте де просадка.</div></div></div>
+      <div class="mistake-cell"><div class="mistake-icon">07</div><div><div class="mistake-title">Таргет на все місто або країну</div><div class="mistake-desc">Платите за людей які ніколи не приїдуть. Для офлайн-бізнесу — радіус 3-5 км від салону.</div></div></div>
+      <div class="mistake-cell"><div class="mistake-icon">08</div><div><div class="mistake-title">Немає системи повторних візитів</div><div class="mistake-desc">Реклама привела клієнта. Він прийшов і зник. Без перезапису — більше 50% не повертаються. Реклама окупається тільки з повторних.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section>
+  <div class="s-inner-gray">
+    <div class="eyebrow reveal">— 08 / Офери</div>
+    <h2 class="s-title reveal d1">Що <em>продає</em> у 2026, а що вже <em>мертве</em></h2>
+    <div class="offers-grid reveal d2">
+      <div class="offer-card">
+        <div class="offer-badge-outline">Вже не працює</div>
+        <div class="offer-num">Мертве</div>
+        <div class="offer-title" style="color:var(--muted);text-decoration:line-through;text-decoration-color:var(--coral)">Знижка 30% на перший візит</div>
+        <p style="font-size:14px;color:var(--hint);margin:12px 0 20px;line-height:1.5">Аудиторія вигоріла від таких оферів роками</p>
+        <div class="offer-divider"></div>
+        <div style="display:grid;gap:10px">
+          <div style="font-size:14px;color:var(--hint);text-decoration:line-through">«Акція березня» — без конкретики</div>
+          <div style="font-size:14px;color:var(--hint);text-decoration:line-through">«Найкращий салон міста»</div>
+          <div style="font-size:14px;color:var(--hint);text-decoration:line-through">«Подаруй собі красу»</div>
+          <div style="font-size:14px;color:var(--hint);text-decoration:line-through">«Профі майстри» без доказів</div>
+        </div>
+      </div>
+      <div class="offer-card dark">
+        <div class="offer-badge-coral">Зараз продає</div>
+        <div class="offer-num">Працює</div>
+        <div class="offer-title">Конкретний офер</div>
+        <p style="font-size:14px;color:rgba(255,255,255,.4);margin:12px 0 20px;line-height:1.5">З ціною, часом і зрозумілим результатом</p>
+        <div class="offer-divider"></div>
+        <div style="display:grid;gap:12px">
+          <div class="offer-item"><div class="chk chk-dark"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#e8704f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="offer-item-text">Комплекс з фіксованою ціною<small>«Мані + педи + брови за 1500 грн за 1,5 год»</small></div></div>
+          <div class="offer-item"><div class="chk chk-dark"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#e8704f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="offer-item-text">Гарантія результату<small>«Відшарується за 7 днів — зробимо заново»</small></div></div>
+          <div class="offer-item"><div class="chk chk-dark"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#e8704f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="offer-item-text">Дедлайн і обмеженість<small>«Тільки 10 місць до кінця тижня»</small></div></div>
+          <div class="offer-item"><div class="chk chk-dark"><svg viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#e8704f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="offer-item-text">Комплімент-послуга<small>«Перший візит + масаж рук у подарунок»</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROZBORY + CTA 2 -->
+<div class="rozbory-block">
+  <div style="max-width:920px;margin:0 auto">
+    <div class="eyebrow-white reveal">— 09 / Практика</div>
+    <h2 class="s-title-white reveal d1">Онлайн <em>розбори учасників</em></h2>
+    <p class="rozbory-intro reveal d2">Після теорії — живий розбір у прямому ефірі. Напишіть у чат хто ви, звідки і свій головний запит. Я оберу 2 учасниць і розберемо їхню ситуацію у прямому ефірі — конкретно, з цифрами, з планом дій.</p>
+    <div class="rozbory-chat-card reveal d2">
+      <div class="rozbory-chat-label">Що написати у чат</div>
+      <div class="rozbory-chat-items">
+        <div class="rozbory-chat-item"><div class="rozbory-chat-num">1</div><div class="rozbory-chat-text">Хто ви — майстер, власник, майстер-власник</div></div>
+        <div class="rozbory-chat-item"><div class="rozbory-chat-num">2</div><div class="rozbory-chat-text">Місто і формат бізнесу</div></div>
+        <div class="rozbory-chat-item"><div class="rozbory-chat-num">3</div><div class="rozbory-chat-text">Один головний запит — що зараз найбільше болить</div></div>
+      </div>
+    </div>
+    <!-- CTA 2 -->
+    <div class="reveal d3" style="background:rgba(217,79,43,.1);border:1px solid rgba(217,79,43,.3);border-radius:3px;padding:48px;text-align:center">
+      <div style="font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px">Поки ви пишете у чат</div>
+      <h3 style="font-family:var(--serif);font-size:clamp(24px,3.5vw,36px);font-weight:900;color:#fff;margin-bottom:12px;line-height:1.15">Запрошую на <em style="font-style:italic;color:#FFB4AD">особисту роботу</em></h3>
+      <p style="font-size:15px;color:rgba(255,255,255,.45);line-height:1.65;max-width:480px;margin:0 auto 28px">Заповніть коротку анкету — я переглядаю кожну особисто і зв'яжусь щоб підібрати найкращий для вас варіант.</p>
+      <a href="#" class="cta-btn-coral">Заповнити анкету →</a>
+      <p style="margin-top:12px;font-size:12px;color:rgba(255,255,255,.2)">3 хвилини · Місць обмежено</p>
+    </div>
+  </div>
+</div>
+
+<!-- QA -->
+<section>
+  <div class="s-inner-gray">
+    <div class="eyebrow reveal">— 10 / Q&amp;A</div>
+    <h2 class="s-title reveal d1">Питання і <em>відповіді</em></h2>
+    <p style="font-size:17px;color:var(--muted);max-width:680px;margin-bottom:40px;line-height:1.6" class="reveal d1">Найчастіші запитання від майстрів і власників салонів.</p>
+    <div class="qa-grid">
+      <div class="qa-item reveal d1"><div class="qa-item-inner"><div class="qa-q">Я майстер-одиначка. Чи підходить це мені?</div><div class="qa-a">Більшість інструментів підходять для будь-якого формату. Якщо працюєте самі — фокус на базу, Google-карти і Instagram. Платна реклама має сенс коли вже стабільно зайняті і хочете підвищувати ціну або вибирати клієнтів.</div></div></div>
+      <div class="qa-item reveal d1"><div class="qa-item-inner"><div class="qa-q">У нас маленьке місто. Варто запускати рекламу?</div><div class="qa-a">У маленьких містах реклама дешевша — менша конкуренція. Але аудиторія вигорає швидше — потрібно частіше змінювати креативи. За 500-700$/міс — стабільно 20-30 нових клієнтів. Google-карти і сарафан у малих містах працюють навіть краще ніж у великих.</div></div></div>
+      <div class="qa-item reveal d2"><div class="qa-item-inner"><div class="qa-q">Скільки часу займе щоб побачити результат?</div><div class="qa-a">Безкоштовні інструменти — перші результати через 30-60 днів системної роботи. Платна реклама — перші заявки за 24-48 годин після запуску. Стабільний окупований результат — через 2-3 місяці. Не вимикайте рекламу раніше ніж через 14 днів.</div></div></div>
+      <div class="qa-item reveal d2"><div class="qa-item-inner"><div class="qa-q">Веду Instagram але результату немає. Що не так?</div><div class="qa-a">Найчастіші причини: нерегулярні публікації, немає живих відгуків, незрозуміло як записатись. Instagram сам по собі не продає — він прогріває. Продає адмін або ви самі коли людина написала.</div></div></div>
+      <div class="qa-item reveal d3"><div class="qa-item-inner"><div class="qa-q">Як зрозуміти скільки витрачати на рекламу?</div><div class="qa-a">Порахуйте LTV одного клієнта — скільки приносить за рік. Для міста до 200К — стартуйте з 500-700$/міс. Для великих — від 700 до 1500$/міс. Менше — алгоритм не встигає навчитись.</div></div></div>
+      <div class="qa-item reveal d3"><div class="qa-item-inner"><div class="qa-q">Чи обов'язково наймати таргетолога?</div><div class="qa-a">Ні. Базову рекламу можна налаштувати самостійно. Але якщо хочете масштабуватись і не витрачати час на навчання — спеціаліст прискорить результат і зменшить дорогі помилки на старті.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSIONS -->
+<section>
+  <div class="s-inner">
+    <div class="eyebrow reveal">— 11 / Висновки</div>
+    <h2 class="s-title reveal d1">Головне <em>з ефіру</em></h2>
+    <div class="conc-list">
+      <div class="conc-item reveal"><p>Немає «правильного» одного каналу. Є <strong>система з 3-5 каналів</strong> які працюють одночасно.</p></div>
+      <div class="conc-item reveal"><p>Починати з <strong>безкоштовного фундаменту</strong>: Google-карти, Instagram-вітрина, сарафан зі стимулом, база клієнтів.</p></div>
+      <div class="conc-item reveal"><p>Meta Ads — <strong>прискорювач, не рятівник.</strong> Без упаковки — злив бюджету гарантований.</p></div>
+      <div class="conc-item reveal"><p>Клієнт приносить прибуток <strong>не з першого візиту.</strong> Рахуйте LTV, а не вартість першого ліда.</p></div>
+      <div class="conc-item reveal"><p>50-70% заявок зливається <strong>до першого запису.</strong> Виправте — і виручка зросте без збільшення бюджету.</p></div>
+      <div class="conc-item reveal"><p><strong>Реклама буде тільки дорожчати.</strong> Заходити «потім» = платити більше і починати з меншим ефектом.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="cta" style="border:none">
+  <div class="final-cta">
+    <div class="final-cta-inner">
+      <div class="final-cta-tag">Особиста робота · Заклик 3</div>
+      <h2>Час перестати здогадуватись — <em>починаємо</em></h2>
+      <p class="final-cta-sub">Якщо хочете пройти цей шлях не наодинці — я проводжу індивідуальну роботу з власниками салонів і майстрами-власниками.</p>
+      <ul class="final-cta-list">
+        <li>Дивимось де реально губляться клієнти і гроші</li>
+        <li>Рахуємо LTV, маржу і точку беззбитковості</li>
+        <li>Визначаємо 2-3 точки росту які дадуть ефект найшвидше</li>
+        <li>Будуємо план дій конкретно під ваш бізнес</li>
+      </ul>
+      <div class="final-cta-offer">
+        <div class="final-cta-offer-label">Як потрапити</div>
+        <div class="final-cta-offer-value">Заповніть анкету — 3 хвилини<br><small>Я переглядаю кожну і зв'яжусь особисто щоб підібрати найкращий варіант</small></div>
+      </div>
+      <div class="final-cta-buttons">
+        <a href="#" class="btn-big-coral">Заповнити анкету →</a>
+        <a href="https://t.me/sveta_gerasevich" target="_blank" class="btn-big-outline">Написати у Telegram</a>
+      </div>
+      <p style="margin-top:20px;font-size:13px;color:var(--muted)">Місць небагато — якщо думаєте, краще написати зараз</p>
+    </div>
+  </div>
+</section>
+
+<div class="ticker-wrap" style="border-top:1px solid rgba(255,255,255,.08)">
+  <div class="ticker-track">
+    <span class="ticker-item">Стабільний потік клієнтів у бюті-бізнесі</span><span class="ticker-item">28 квітня</span><span class="ticker-item">прямий ефір</span><span class="ticker-item">Світлана Герасевич</span><span class="ticker-item">Стабільний потік клієнтів у бюті-бізнесі</span><span class="ticker-item">28 квітня</span><span class="ticker-item">прямий ефір</span><span class="ticker-item">Світлана Герасевич</span>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Світлана <span>Герасевич</span></div>
+  <div class="footer-info">Власниця салону · Ментор для бюті-бізнесу · 2026</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
